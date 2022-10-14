@@ -1,0 +1,21 @@
+.header {
+    padding: 40px;
+    background-image: linear-gradient(180deg, #7158eb, #302f80);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.header .search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header .search .ng-fa-icon {
+    font-size: 25px;
+    color: white;
+    opacity: 0.9;
+}
+
+.header h1 {
+    margin: 50px 0 0
+}
