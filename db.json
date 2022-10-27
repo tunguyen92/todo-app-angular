@@ -1,0 +1,26 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "signupUsers": [
+    {
+      "username": "tunguyen",
+      "email": "tunguyen@gmail.com",
+      "password": "123123",
+      "id": 1
+    },
+    {
+      "username": "linhnguyen",
+      "email": "linh@gmail.ocm",
+      "password": "12354",
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

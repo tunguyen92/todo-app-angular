@@ -11,7 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'todos',
     component: TodosComponent,
   },
 ];
