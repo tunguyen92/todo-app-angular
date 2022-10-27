@@ -1,9 +1,11 @@
 <header class="header">
-  <div class="search">
-    <fa-icon [icon]="faBars"></fa-icon>
-    <input class="search-input" />
-    <fa-icon [icon]="faSearch"></fa-icon>
-  </div>
-
-  <h1>TODO LIST</h1>
+  <h1>todos</h1>
+  <input
+    class="new-todo"
+    placeholder="What needs to be done?"
+    autoFocus
+    [value]="text"
+    (keyup)="changeText($event)"
+    (keyup.enter)="addTodo()"
+  />
 </header>
