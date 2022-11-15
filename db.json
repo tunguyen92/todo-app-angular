@@ -6,7 +6,7 @@
       "author": "typicode"
     }
   ],
-  "signupUsers": [
+  "users": [
     {
       "username": "tunguyen",
       "email": "tunguyen@gmail.com",
@@ -18,6 +18,18 @@
       "email": "linh@gmail.ocm",
       "password": "12354",
       "id": 2
+    },
+    {
+      "username": "tu123",
+      "email": "abc@gmail.com",
+      "password": "1",
+      "id": 3
+    },
+    {
+      "username": "trungbd",
+      "email": "trungbede@gmail.com",
+      "password": "123",
+      "id": 4
     }
   ],
   "profile": {
