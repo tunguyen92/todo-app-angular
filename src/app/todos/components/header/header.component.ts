@@ -11,6 +11,10 @@ export class HeaderComponent {
 
   constructor(private todoService: TodosService) {}
 
+  handleLogout(): void {
+    localStorage.removeItem('user');
+  }
+
   changeText(event: Event): void {
     const target = event.target as HTMLInputElement;
     this.text = target.value;

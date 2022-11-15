@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  usernameInput: string = '';
+  passwordInput: string = '';
   public signupForm!: FormGroup;
   public loginForm!: FormGroup;
 
@@ -29,11 +31,17 @@ export class LoginComponent {
       username: [''],
       password: [''],
     });
+
+    const userLocalstorage = JSON.parse(localStorage.getItem('user'));
+    if (userLocalstorage) {
+      this.usernameInput = userLocalstorage.username;
+      this.passwordInput = userLocalstorage.password;
+    }
   }
 
   signUp() {
     this.http
-      .post<any>('http://localhost:3000/signupUsers', this.signupForm.value)
+      .post<any>('http://localhost:3000/users', this.signupForm.value)
       .subscribe(
         (res) => {
           alert('Success');
@@ -47,28 +55,43 @@ export class LoginComponent {
   }
 
   signIn() {
-    this.http
-      .get<any>('http://localhost:3000/signupUsers', this.signupForm.value)
-      .subscribe(
-        (res) => {
-          const user = res.find((u: any) => {
-            return (
-              u.username === this.loginForm.value.username &&
-              u.password === this.loginForm.value.password
-            );
-          });
-          if (user) {
-            alert('Login Success');
-            this.loginForm.reset();
-            this.router.navigate(['todos']);
-          } else {
-            alert('User not found');
-          }
-        },
-        (err) => {
-          alert('Something went wrong');
-          console.log(err);
-        }
-      );
+    const userInput = this.loginForm.value;
+
+    if (userInput.username === 'tunguyen' && userInput.password === '123123') {
+      alert('Login Success');
+      this.loginForm.reset();
+      this.router.navigate(['home']);
+      if (userInput.username !== '' && userInput !== '') {
+        localStorage.setItem('user', JSON.stringify(userInput));
+      }
+    } else if (userInput.username === '' || userInput.password === '') {
+      alert('Required');
+    } else {
+      alert('Something went wrong');
+    }
+    // this.http.get<any>('http://localhost:3000/users').subscribe(
+    //   (res) => {
+    //     const user = res.find((u: any) => {
+    //       return (
+    //         u.username === this.loginForm.value.username &&
+    //         u.password === this.loginForm.value.password
+    //       );
+    //     });
+    //     const userLocalstorage = JSON.parse(localStorage.getItem('user'));
+
+    //     if (user || userLocalstorage) {
+    //       alert('Login Success');
+    //       this.loginForm.reset();
+    //       this.router.navigate(['todos']);
+    //       localStorage.setItem('user', JSON.stringify(user));
+    //     } else {
+    //       alert('Username or password are incorrect');
+    //     }
+    //   },
+    //   (err) => {
+    //     alert('Something went wrong');
+    //     console.log(err);
+    //   }
+    // );
   }
 }

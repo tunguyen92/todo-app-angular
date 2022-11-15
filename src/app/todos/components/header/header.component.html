@@ -1,6 +1,8 @@
 <header class="header">
-  <button class="logout" routerLink="/login">Logout</button>
-  <h1>todos</h1>
+  <button class="logout" (click)="handleLogout()" routerLink="/login">
+    Logout
+  </button>
+  <h1>Todos</h1>
   <input
     class="new-todo"
     placeholder="What needs to be done?"
